@@ -1,2 +1,2 @@
 # qwe
-A simple in-memory key-value store
+A simple non-persistent in-memory key-value store
