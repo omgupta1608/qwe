@@ -1,2 +1,2 @@
-# rate-limiter
-A simple REST API rate limiter written in go
+# qwe
+A simple in-memory key-value store
