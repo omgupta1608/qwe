@@ -7,10 +7,33 @@ import (
 	"os"
 )
 
+var (
+	Map map[string]string = make(map[string]string, 0)
+	version string = "v1"
+)
+
+func Set(cmd []string){
+	if _, ok := Map[cmd[1]]; ok {
+		fmt.Println("Key already exists")
+	} else {
+		Map[cmd[1]] = cmd[2]
+	}
+}
+
+func Get(cmd []string){
+	if val, ok := Map[cmd[1]]; !ok {
+		fmt.Println("Key doesn't exists")
+	} else {
+		fmt.Println(val)
+	}
+}
+
 func handleCommand(command []string) {
 	switch command[0] {
-		case "HI":
-			fmt.Println("HELLO!")
+		case "SET":
+			Set(command)
+		case "GET":
+			Get(command)
 		case "STOP":
 			fmt.Println("Bye. Hope to see you again!")
 			os.Exit(0)
