@@ -15,7 +15,7 @@ var (
 func Set(cmd []string){
 	if len(cmd) != 3 {
 		fmt.Println("Invalid Argument List")
-		return;
+		return
 	}
 	if _, ok := Map[cmd[1]]; ok {
 		fmt.Println("Key already exists")
@@ -27,12 +27,24 @@ func Set(cmd []string){
 func Get(cmd []string){
 	if len(cmd) != 2 {
 		fmt.Println("Invalid Argument List")
-		return;
+		return
 	}
 	if val, ok := Map[cmd[1]]; !ok {
 		fmt.Println("Key doesn't exists")
 	} else {
 		fmt.Println(val)
+	}
+}
+
+func Delete(cmd []string){
+	if len(cmd) != 2 {
+		fmt.Println("Invalid Argument List")
+		return
+	}
+	if _, ok := Map[cmd[1]]; !ok {
+		fmt.Println("Key doesn't exists")
+	} else {
+		delete(Map, cmd[1])
 	}
 }
 
@@ -42,6 +54,8 @@ func handleCommand(command []string) {
 			Set(command)
 		case "GET":
 			Get(command)
+		case "DELETE":
+			Delete(command)
 		case "STOP":
 			fmt.Println("Bye. Hope to see you again!")
 			os.Exit(0)
