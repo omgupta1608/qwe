@@ -13,6 +13,10 @@ var (
 )
 
 func Set(cmd []string){
+	if len(cmd) != 3 {
+		fmt.Println("Invalid Argument List")
+		return;
+	}
 	if _, ok := Map[cmd[1]]; ok {
 		fmt.Println("Key already exists")
 	} else {
@@ -21,6 +25,10 @@ func Set(cmd []string){
 }
 
 func Get(cmd []string){
+	if len(cmd) != 2 {
+		fmt.Println("Invalid Argument List")
+		return;
+	}
 	if val, ok := Map[cmd[1]]; !ok {
 		fmt.Println("Key doesn't exists")
 	} else {
@@ -46,7 +54,7 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 
 	for {
-		fmt.Print("=> ")
+		fmt.Print("> ")
 		text, _ := reader.ReadString('\n')
 		command := strings.Fields(text)
 
