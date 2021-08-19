@@ -67,6 +67,8 @@ func handleCommand(command []string) {
 		case "STOP":
 			fmt.Println("Bye. Hope to see you again!")
 			os.Exit(0)
+		case "ABOUT":
+			About(command)
 		default:
 			fmt.Println("Invalid command", command[0])
 	}
