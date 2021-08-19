@@ -48,6 +48,14 @@ func Delete(cmd []string){
 	}
 }
 
+func About(cmd []string) {
+	if len(cmd) != 2 {
+		fmt.Println("Invalid Argument List")
+		return
+	}
+	fmt.Println("qwe is a in-memory non persistent key value store.\nVersion : 1.0")
+}
+
 func handleCommand(command []string) {
 	switch command[0] {
 		case "SET":
